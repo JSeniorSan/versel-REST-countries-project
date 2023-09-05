@@ -1,0 +1,122 @@
+@import "./vars.module";
+@import "./mixins.module";
+
+.wrapper {
+  @include wrapperTheme($_mainColor);
+  transition: all ease-in-out 0.5s;
+}
+
+:root {
+  --dark: black;
+  --white: white;
+}
+
+%dark {
+  background-color: black;
+}
+
+%white {
+  background-color: aquamarine;
+}
+
+%country {
+  @apply font-bold text-xl py-5 pl-2 pt-10;
+  color: $_textMain;
+}
+
+%text_info {
+  @apply text-sm font-normal flex items-start;
+  color: $_textSupportive;
+}
+
+%info_str {
+  @apply font-medium text-sm  pr-2 flex items-start;
+  color: $_textMain;
+}
+
+%header_div {
+  @apply pt-2 pb-2 pl-3 grid shadow-md;
+
+  grid-template-columns: minmax(100px, 1fr) minmax(auto, 1fr);
+  @include adaptive() {
+    @apply pl-6;
+  }
+}
+
+body {
+  @apply box-border p-0 m-0 min-h-screen font-sans;
+}
+
+.whiteHeaderDiv {
+  @extend %header_div;
+  background-color: $_mainColor;
+  border-color: black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.532);
+
+  @include headerTheme($_mainColor, $_sun, $_textSupportive);
+  transition: all ease-in-out 0.5s;
+}
+
+//
+.secondFolder {
+  transition: all ease-in-out 0.5s;
+  @include secondFoldertheme($_mainColor, $_secondColor);
+}
+
+.countryList {
+  transition: all ease-in-out 0.5s;
+  @include countryListTheme($_mainColor, $_secondColor);
+}
+
+.countryInfoDiv2 {
+  @apply p-4;
+
+  @include countryInfoDiv2__clicked($_mainColor, $_textMain, $_mainColor);
+}
+
+.sunElement {
+  background-color: $_bg;
+  border: none;
+  transition: all ease-in-out 0.5s;
+}
+.darkSunElement {
+  background-color: $_dark_header;
+  border: none;
+  transition: all ease-in-out 0.5s;
+}
+.moonElement {
+  border: none;
+  background-color: $_bg;
+  transition: all ease-in-out 0.5s;
+}
+.darkMoonElement {
+  background-color: $_dark_header;
+  border: none;
+  transition: all ease-in-out 0.5s;
+}
+
+.darkHeaderDiv {
+  color: $_mainColor;
+  background-color: $_dark_header;
+  @extend %header_div;
+
+  @include headerTheme($_dark_header, $_textSupportive, $_moon);
+}
+
+.darkSecondFolder {
+  @include secondFoldertheme($_dark_main, $_mainColor);
+}
+
+.darkCountryList {
+  transition: all ease-in-out 0.5s;
+  @include countryListTheme($_card_color, $_mainColor);
+}
+
+.darkWrapper {
+  @include wrapperTheme($_dark_main);
+}
+.darkCountryInfoDiv2 {
+  @apply p-4;
+
+  @include countryInfoDiv2__clicked($_dark_main, $_mainColor, $_dark_main);
+}

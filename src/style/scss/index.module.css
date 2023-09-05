@@ -1,0 +1,231 @@
+:root {
+  --dark: black;
+  --white: white;
+}
+
+.countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main .country {
+  @apply font-bold text-xl py-5 pl-2 pt-10;
+  color: black;
+}
+
+.text_div .text_div__content, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__endContent .text_div__content, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main .text_div__content {
+  @apply text-sm font-normal flex items-start;
+  color: rgb(75, 85, 99);
+}
+
+.text_div .page, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__endContent .page, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main .page {
+  @apply font-medium text-sm  pr-2 flex items-start;
+  color: black;
+}
+
+.text_div, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__endContent, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main {
+  @apply flex flex-row p-2;
+}
+@media (min-width: 1100px) {
+  .text_div .page, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__endContent .page, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main .page {
+    @apply justify-center;
+    font-size: 19px;
+  }
+}
+@media (min-width: 1100px) {
+  .text_div .text_div__content, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__endContent .text_div__content, .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main .text_div__content {
+    @apply justify-center;
+    font-size: 19px;
+  }
+}
+
+body {
+  @apply box-border p-0 m-0 min-h-screen font-sans;
+  background-color: rgb(241, 245, 249);
+}
+
+.headerDiv {
+  @apply border-b-4 shadow-sm pt-2 pb-2 pl-3 grid;
+  background-color: white;
+  border-color: rgb(243, 244, 246);
+  grid-template-columns: minmax(100px, 1fr) minmax(auto, 1fr);
+}
+@media (min-width: 1100px) {
+  .headerDiv {
+    @apply pl-6;
+  }
+}
+.headerDiv .title {
+  @apply text-sm font-bold font-sans flex w-full;
+  align-items: center;
+}
+@media (min-width: 1100px) {
+  .headerDiv .title {
+    @apply text-lg;
+  }
+}
+.headerDiv .switcherTheme {
+  @apply justify-start gap-3 pr-2;
+  background-color: white;
+}
+.headerDiv .switcherTheme .divMoon {
+  @apply flex justify-end items-center gap-2;
+}
+.headerDiv .switcherTheme .divMoon .divMoon__switcher {
+  @apply min-w-fit flex justify-between items-center gap-3;
+}
+.headerDiv .switcherTheme .divMoon .divMoon__switcher .moon {
+  @apply opacity-25 flex justify-end items-center;
+  color: rgb(75, 85, 99);
+}
+@media (min-width: 1100px) {
+  .headerDiv .switcherTheme .divMoon .divMoon__switcher .moon {
+    @apply text-3xl;
+  }
+}
+.headerDiv .switcherTheme .divMoon .divMoon__switcher .sun {
+  color: rgb(251, 191, 36);
+}
+@media (min-width: 1100px) {
+  .headerDiv .switcherTheme .divMoon .divMoon__switcher .sun {
+    @apply text-3xl;
+  }
+}
+.headerDiv .switcherTheme .divMoon .divMoon__String {
+  @apply text-sm font-medium font-sans;
+}
+@media (min-width: 1100px) {
+  .headerDiv .switcherTheme .divMoon .divMoon__String {
+    @apply text-lg;
+  }
+}
+
+.secondFolder {
+  @apply grid p-5;
+  grid-template-columns: minmax(250px, 350px);
+  grid-template-rows: auto 30px;
+}
+.secondFolder .inputDiv {
+  @apply rounded-sm flex gap-2 h-7 w-5/6 items-center text-base font-sans justify-self-start py-1 pl-6;
+  background-color: white;
+  border: 1px solid rgb(75, 85, 99);
+}
+.secondFolder .inputDiv input {
+  @apply border-none outline-none w-full text-sm font-sans;
+}
+.secondFolder .secondFolder__selector {
+  @apply rounded-sm h-8;
+}
+@media (min-width: 1100px) {
+  .secondFolder {
+    @apply grid;
+    grid-template-columns: 200px 1fr 200px;
+  }
+}
+
+.countryList {
+  @apply px-5 flex flex-col gap-6;
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  .countryList {
+    @apply grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+.countryList .container {
+  @apply shadow-md rounded-lg  overflow-hidden;
+  background-color: white;
+}
+.countryList .container__image {
+  @apply w-full shadow-sm;
+}
+.countryList .container__image img {
+  @apply h-auto w-full rounded-tl-lg rounded-tr-lg object-contain;
+}
+.countryList .conatiner__mainInfo {
+  @apply p-5;
+}
+@media (min-width: 1100px) {
+  .countryList {
+    @apply grid gap-14;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+.countryInfoDiv2 {
+  @apply p-4;
+}
+.countryInfoDiv2 .btnBack {
+  @apply mb-10 mt-7 py-2 px-5  border-none;
+  background-color: white;
+  color: rgb(75, 85, 99);
+  box-shadow: rgba(0, 0, 0, 0.319) 0 0 6px 1px;
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .btnBack {
+    @apply text-xl mb-14 mt-7 py-4 px-7;
+  }
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked {
+    @apply flex flex-col;
+  }
+}
+.countryInfoDiv2 .countryInfoDiv2__clicked .container__image {
+  @apply h-auto;
+  background-color: rgb(241, 245, 249);
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked .container__image {
+    width: 600px;
+    @apply row-span-3 flex items-center;
+  }
+}
+@media (min-width: 450px) and (max-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked .container__image {
+    @apply w-96;
+  }
+}
+.countryInfoDiv2 .countryInfoDiv2__clicked .container__image img {
+  @apply h-auto w-full;
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main {
+    @apply w-full col-span-2 row-span-2 flex items-center;
+  }
+}
+.countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__main .country {
+  @apply text-3xl;
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked .countryInfoDiv2__endContent {
+    @apply col-span-3 row-span-2 flex items-center;
+  }
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked .countriesDiv {
+    @apply col-start-2 col-end-7;
+  }
+}
+.countryInfoDiv2 .countryInfoDiv2__clicked .countriesDiv .btn_div {
+  @apply flex gap-3 flex-wrap border-none col-span-2;
+}
+.countryInfoDiv2 .countryInfoDiv2__clicked .countriesDiv .btn_div .country__btn {
+  @apply py-2 px-5  font-thin font-serif  border rounded;
+  background-color: rgb(241, 245, 249);
+  transition: all ease-in-out 0.2s;
+}
+.countryInfoDiv2 .countryInfoDiv2__clicked .countriesDiv .btn_div .country__btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.232) 0 0 10px 1px;
+  transform: translateY(-2px);
+  background-color: rgb(191, 219, 254);
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked .countriesDiv .btn_div .country__btn {
+    font-size: 19px;
+  }
+}
+@media (min-width: 1100px) {
+  .countryInfoDiv2 .countryInfoDiv2__clicked {
+    @apply grid gap-10;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+}/*# sourceMappingURL=index.module.css.map */

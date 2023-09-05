@@ -1,0 +1,290 @@
+@mixin adaptive($_width: 1100px) {
+  @media (min-width: $_width) {
+    @content;
+  }
+}
+
+@mixin secondAdaptive($_minWidth, $_maxWidth) {
+  @media (min-width: $_minWidth) and (max-width: $_maxWidth) {
+    @content;
+  }
+}
+
+@mixin textHeigth($_heigth) {
+  font-size: $_heigth;
+}
+
+@mixin headerTheme($_color_bg, $_color_sun, $_color_moon) {
+  transition: all ease-in-out 0.5s;
+  .title {
+    @apply text-sm font-bold font-sans flex w-full;
+    align-items: center;
+
+    @include adaptive() {
+      @apply text-lg;
+    }
+  }
+
+  .switcherTheme {
+    transition: all ease-in-out 0.5s;
+    @apply justify-start gap-3 pr-2;
+    background-color: $_color_bg;
+
+    .divMoon {
+      @apply flex justify-end items-center gap-2;
+
+      .divMoon__switcher {
+        @apply min-w-fit flex justify-between items-center gap-3;
+
+        .moon {
+          @apply opacity-25 flex justify-end items-center;
+          color: $_color_moon;
+
+          @include adaptive() {
+            @apply text-3xl;
+          }
+        }
+
+        .sun {
+          color: $_color_sun;
+          transition: all ease-in-out 0.5s;
+
+          @include adaptive() {
+            @apply text-3xl;
+          }
+        }
+      }
+      .divMoon__String {
+        @apply text-sm font-medium font-sans;
+
+        @include adaptive() {
+          @apply text-lg;
+        }
+      }
+    }
+  }
+}
+
+@mixin secondFoldertheme($_color_bg, $_color_text) {
+  transition: all ease-in-out 0.5s;
+  @apply grid p-5;
+  background-color: $_color_bg;
+  // gap: 30px 0px;
+  grid-template-columns: minmax(250px, 350px);
+  grid-template-rows: auto 30px;
+
+  .inputDiv {
+    transition: all ease-in-out 0.5s;
+    @apply rounded-sm flex gap-2 h-7 w-5/6 items-center text-base font-sans justify-self-start py-1 pl-6;
+    background-color: $_color_bg;
+
+    input {
+      transition: all ease-in-out 0.5s;
+      @apply border-none outline-none w-full text-sm font-sans rounded-md;
+      background-color: $_color_bg;
+      color: $_color_text;
+    }
+  }
+
+  .secondFolder__selector {
+    transition: all ease-in-out 0.5s;
+    @apply rounded-sm h-8;
+    background-color: $_color_bg;
+    color: $_color_text;
+  }
+
+  @include adaptive() {
+    @apply grid;
+
+    grid-template-columns: 200px 1fr 200px;
+  }
+}
+
+@mixin countryListTheme($_color_bg, $_color_text) {
+  transition: all ease-in-out 0.5s;
+  @include secondAdaptive(600px, 1100px) {
+    @apply grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+  @apply px-5 flex flex-col gap-6;
+
+  .container {
+    @apply shadow-md rounded-lg  overflow-hidden;
+    background-color: $_color_bg;
+    box-shadow: rgba(128, 128, 128, 0.444) 0 0 15px 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.515);
+  }
+  .container__image {
+    @apply w-full;
+
+    img {
+      @apply h-auto w-full rounded-tl-lg rounded-tr-lg object-contain;
+    }
+  }
+
+  .conatiner__mainInfo {
+    @apply p-5;
+    color: $_color_text;
+  }
+
+  @include adaptive() {
+    @apply grid gap-14;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@mixin wrapperTheme($_color_bg) {
+  transition: all ease-in-out 0.5s;
+  @apply min-h-screen min-w-fit;
+
+  background-color: $_color_bg;
+}
+
+@mixin countryInfoDiv2__clicked($_color_bg, $_color_text, $_color_btn) {
+  .btnBack {
+    transition: all ease-in-out 0.5s;
+    @apply mb-10 mt-7 py-2 px-5  border-none;
+    background-color: $_color_btn;
+    color: $_color_text;
+
+    box-shadow: rgba(0, 0, 0, 0.319) 0 0 6px 1px;
+
+    @include adaptive() {
+      @apply text-xl mb-14 mt-7 py-4 px-7;
+    }
+  }
+  .countryInfoDiv2__clicked {
+    @include secondAdaptive(600px, 1100px) {
+      @apply flex flex-col;
+    }
+
+    .container__image {
+      @apply h-auto;
+      transition: all ease-in-out 0.5s;
+      background-color: $_color_bg;
+      @include adaptive() {
+        width: 600px;
+        @apply row-span-3 flex items-center;
+      }
+
+      @include secondAdaptive(450px, 1100px) {
+        @apply w-96;
+      }
+
+      img {
+        @apply h-auto w-full;
+      }
+    }
+
+    .countryInfoDiv2__main {
+      color: $_color_text;
+      @include adaptive() {
+        @apply w-full col-span-2 row-span-2 flex items-center;
+      }
+      .country {
+        @extend %country;
+        @apply text-3xl;
+        color: $_color_text;
+        transition: all ease-in-out 0.5s;
+      }
+
+      .text_div {
+        transition: all ease-in-out 0.5s;
+        @apply flex flex-row p-2;
+
+        .page {
+          transition: all ease-in-out 0.5s;
+          color: $_color_text;
+          @extend %info_str;
+
+          @include adaptive() {
+            @apply justify-center;
+            @include textHeigth(19px);
+          }
+        }
+
+        .text_div__content {
+          transition: all ease-in-out 0.5s;
+          @extend %text_info;
+          color: $_textSupportive;
+          @include adaptive() {
+            @apply justify-center;
+            @include textHeigth(19px);
+          }
+        }
+      }
+    }
+    .countryInfoDiv2__endContent {
+      transition: all ease-in-out 0.5s;
+      .text_div {
+        transition: all ease-in-out 0.5s;
+        @apply flex flex-row p-2;
+
+        .page {
+          transition: all ease-in-out 0.5s;
+          color: $_color_text;
+          @extend %info_str;
+
+          @include adaptive() {
+            @apply justify-center;
+            @include textHeigth(19px);
+          }
+        }
+
+        .text_div__content {
+          transition: all ease-in-out 0.5s;
+          @extend %text_info;
+          color: $_textSupportive;
+          @include adaptive() {
+            @apply justify-center;
+            @include textHeigth(19px);
+          }
+        }
+      }
+
+      @include adaptive() {
+        @apply col-span-3 row-span-2 flex items-center;
+      }
+    }
+    .countriesDiv {
+      transition: all ease-in-out 0.5s;
+      @include adaptive() {
+        @apply col-start-2 col-end-7;
+      }
+      h4 {
+        color: $_color_text;
+        transition: all ease-in-out 0.5s;
+      }
+
+      .btn_div {
+        transition: all ease-in-out 0.5s;
+        @apply flex gap-3 flex-wrap border-none col-span-2;
+        background-color: $_color_bg;
+
+        .country__btn {
+          @apply py-2 px-5  font-thin font-serif  border rounded;
+          background-color: $_bg;
+          transition: all ease-in-out 0.2s;
+
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.232) 0 0 10px 1px;
+            transform: translateY(-2px);
+            background-color: $_btn_hover;
+          }
+          @include adaptive() {
+            @include textHeigth(19px);
+          }
+        }
+      }
+    }
+
+    @include adaptive() {
+      @apply grid gap-10;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
